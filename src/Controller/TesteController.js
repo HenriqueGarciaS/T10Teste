@@ -17,9 +17,9 @@ module.exports = {
 
     async findOne(req,res){
 
-        const {id_teste} = req.parms;
-
-        const teste = await Teste.findByPk(id_teste);
+        const {id} = req.body;
+       
+        const teste = await Teste.findByPk(id);
 
         if(!teste)
         return res.status(404).json("Teste não encontrado");

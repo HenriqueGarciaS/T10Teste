@@ -5,11 +5,11 @@ const testeController = require('./Controller/TesteController');
 
 
 routes.get('/',(req,res) =>{
-    return res.json({text:"Hello World"})
+    return res.json({text:"rotas de teste : /teste/select, /teste/insert"})
 })
 
-routes.get('/teste/:id',testeController.findOne);
+routes.post('/teste/select',testeController.findOne);
 
-routes.post('/teste',testeController.store)
+routes.post('/teste/insert',testeController.store)
 
 module.exports = routes;

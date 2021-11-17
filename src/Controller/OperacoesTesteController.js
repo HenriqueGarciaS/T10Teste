@@ -34,14 +34,36 @@ module.exports = {
                 guid:guid
             }
         });
-
         
-
         if(!operacao)
         return res.status(400).Json("Operação não encontrada");
 
         return res.json(operacao);
     },
+
+    async GetOne(req,res){
+        const{guid} = req.body;
+
+        OperacoesTeste.removeAttribute("id");
+        
+        const operacao = await OperacoesTeste.findOne({
+            where:{
+                guid:guid
+            }
+        });
+
+        const operacaoFiltrada = {
+            guid: operacao.guid,
+            tipoOp: operacao.tipoOp,
+            valor : operacao.valor,
+        }
+
+        if(!operacao)
+        return res.status(400).Json("Operação não encontrada");
+    
+        return res.json(operacaoFiltrada);
+    },
+
 
     async findAll(req,res){
 

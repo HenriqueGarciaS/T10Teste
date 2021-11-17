@@ -11,6 +11,7 @@ routes.get('/',(req,res) =>{
 
 routes.post('/operacoesTeste/insert',OperacoesTesteController.store);
 routes.post('/operacoesTeste/select',OperacoesTesteController.findOne);
+routes.post('/operacoesTeste/getOne',OperacoesTesteController.GetOne);
 routes.get('/operacoesTeste/selectAll',OperacoesTesteController.findAll);
 
 module.exports = routes;
